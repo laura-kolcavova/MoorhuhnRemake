@@ -27,7 +27,7 @@ namespace MoorhuhnRemake.Src.Systems
 
         private readonly GameApp _gameApp;
         private readonly EntityFactory _entityFactory;
-        private readonly OrthographicCamera _camera;
+        private readonly MapInfo _mapInfo;
         private readonly Random _r;
         private readonly ChickenSpawnBounds _largeChickenSpawning;
         private readonly ChickenSpawnBounds _mediumChickenSpawning;
@@ -42,7 +42,7 @@ namespace MoorhuhnRemake.Src.Systems
         {
             _gameApp = gameApp;
             _entityFactory = _gameApp.Services.GetService<EntityFactory>();
-            _camera = gameApp.Services.GetService<OrthographicCamera>();
+            _mapInfo = _gameApp.Services.GetService<MapInfo>();
 
             _r = new Random();
 
@@ -116,8 +116,8 @@ namespace MoorhuhnRemake.Src.Systems
             float depth = 0f;
             float speed = 0f;
             ChickenSpawnBounds spawning = null;
-            int posY;
-            int posX;
+            float posY;
+            float posX;
             SpriteEffects effects;
             Vector2 velocity;
 
@@ -161,14 +161,14 @@ namespace MoorhuhnRemake.Src.Systems
             if (GetRandomChickenFlyDirection() == ChickenFlyDirection.LEFT)
             {
                 //LEFT
-                posX = _camera.BoundingRectangle.Right;
+                posX = _mapInfo.Right;
                 effects= SpriteEffects.None;
                 velocity = Transform2D.Left;
             }
             else
             {
                 // RIGHT
-                posX = _camera.BoundingRectangle.Left - transform.Bounds.Width;
+                posX = _mapInfo.Left - transform.Bounds.Width;
                 effects = SpriteEffects.FlipHorizontally;
                 velocity = Transform2D.Right;
             }

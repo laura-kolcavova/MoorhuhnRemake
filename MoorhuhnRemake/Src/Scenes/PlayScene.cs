@@ -37,7 +37,6 @@ namespace MoorhuhnRemake.Src.Scenes
             _gameApp.Services.AddService<EntityFactory>(_entityFactory);
 
             // Map
-            var background = _gameApp.Content.Load<Texture2D>(Res.Textures.SKY);
             var mapInfo = new MapInfo(0, 0, GameApp.DefaultWidth, GameApp.DefaultHeight);
             _gameApp.Services.AddService<MapInfo>(mapInfo);
 
@@ -126,9 +125,8 @@ namespace MoorhuhnRemake.Src.Scenes
             renderer.Depth = DepthLayers.BACKGROUND;
 
             transform.Position = position;
-            transform.Bounds = texture.Bounds;
+            transform.Size = new Vector2(GameApp.DefaultWidth, GameApp.DefaultHeight);
         }
-       
        
     }
 }
