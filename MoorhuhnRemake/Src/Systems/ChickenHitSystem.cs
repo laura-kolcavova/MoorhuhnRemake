@@ -32,7 +32,7 @@ namespace MoorhuhnRemake.Src.Systems
         private EventManager _eventManager;
 
         public ChickenHitSystem(GameApp gameApp) : base(
-            AspectBuilder.All(typeof(TagChickenComponent)))
+            Aspect.All(typeof(TagChickenComponent)))
         {
             _gameApp = gameApp;
             _camera = _gameApp.Services.GetService<OrthographicCamera>();

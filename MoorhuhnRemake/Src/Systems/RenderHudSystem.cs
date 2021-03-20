@@ -24,7 +24,7 @@ namespace MoorhuhnRemake.Src.Systems
         private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
 
         public RenderHudSystem(GameApp gameApp)
-           : base(AspectBuilder
+           : base(Aspect
                  .All(typeof(TagHUDComponent), typeof(RenderFormComponent)))
         {
             _gameApp = gameApp;

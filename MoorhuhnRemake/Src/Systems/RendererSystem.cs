@@ -25,7 +25,7 @@ namespace MoorhuhnRemake.Src.Systems
         private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
 
         public RendererSystem(GameApp gameApp)
-            : base(AspectBuilder
+            : base(Aspect
                   .All(typeof(RenderFormComponent), typeof(Transform2D)))
         {
             _gameApp = gameApp;

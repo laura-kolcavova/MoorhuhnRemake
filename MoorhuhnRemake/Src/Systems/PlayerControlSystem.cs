@@ -83,7 +83,7 @@ namespace MoorhuhnRemake.Src.Systems
                 if (_currentAmmo > 0)
                 {
                     Shoot();
-                    _eventManager.Publish(new ShootEvent(_currentMouseState.Position));
+                    
                 }         
                 else
                     Assets.SfxEmptyMagazine.Play();
@@ -168,6 +168,9 @@ namespace MoorhuhnRemake.Src.Systems
 
             // Shot
             _currentAmmo--;
+
+            // Event
+            _eventManager.Publish(new ShootEvent(_currentMouseState.Position));
         }
 
         private void Reload()

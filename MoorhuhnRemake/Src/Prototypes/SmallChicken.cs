@@ -11,5 +11,6 @@ namespace MoorhuhnRemake.Src.Prototypes
         public const float Speed = 0.5f;
         public const float FallSpeed = 6f;
         public const float Depth = DepthLayers.LAYER_01;
+        public const int Score = 25;
     }
 }

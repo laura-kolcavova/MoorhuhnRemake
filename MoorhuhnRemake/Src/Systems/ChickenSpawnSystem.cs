@@ -38,7 +38,7 @@ namespace MoorhuhnRemake.Src.Systems
         private ComponentMapper<ChickenInfoComponent> _chickenInfoMapper;
 
         public ChickenSpawnSystem(GameApp gameApp) : base(
-            AspectBuilder.All(typeof(TagChickenComponent)))
+            Aspect.All(typeof(TagChickenComponent)))
         {
             _gameApp = gameApp;
             _entityFactory = _gameApp.Services.GetService<EntityFactory>();
