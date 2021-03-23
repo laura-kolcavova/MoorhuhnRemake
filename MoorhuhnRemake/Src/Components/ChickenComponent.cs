@@ -5,7 +5,8 @@ using System.Text;
 
 namespace MoorhuhnRemake.Src.Components
 {
-    public class TagAmmoComponent : IEntityComponent
+    public class ChickenComponent : IEntityComponent
     {
+        public ChickenType ChickenType { get; set; }
     }
 }

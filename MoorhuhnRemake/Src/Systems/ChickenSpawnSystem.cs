@@ -35,10 +35,10 @@ namespace MoorhuhnRemake.Src.Systems
 
         private float _chickenSpawnTimer;
 
-        private ComponentMapper<ChickenInfoComponent> _chickenInfoMapper;
+        private ComponentMapper<ChickenComponent> _chickenInfoMapper;
 
         public ChickenSpawnSystem(GameApp gameApp) : base(
-            Aspect.All(typeof(TagChickenComponent)))
+            Aspect.All(typeof(ChickenComponent)))
         {
             _gameApp = gameApp;
             _entityFactory = _gameApp.Services.GetService<EntityFactory>();
@@ -53,7 +53,7 @@ namespace MoorhuhnRemake.Src.Systems
 
         public override void Initialize(IComponentMapperService componentService)
         {
-            _chickenInfoMapper = componentService.GetMapper<ChickenInfoComponent>();
+            _chickenInfoMapper = componentService.GetMapper<ChickenComponent>();
         }
 
         public void Update(GameTime gameTime)

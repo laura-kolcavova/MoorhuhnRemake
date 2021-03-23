@@ -25,14 +25,14 @@ namespace MoorhuhnRemake.Src.Systems
         private readonly OrthographicCamera _camera;
 
         private ComponentMapper<Transform2D> _transform2DMapper;
-        private ComponentMapper<ChickenInfoComponent> _chickenInfoMapper;
+        private ComponentMapper<ChickenComponent> _chickenInfoMapper;
         private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
         private ComponentMapper<RigidBody2D> _rigidBody2DMapper;
 
         private EventManager _eventManager;
 
         public ChickenHitSystem(GameApp gameApp) : base(
-            Aspect.All(typeof(TagChickenComponent)))
+            Aspect.All(typeof(ChickenComponent)))
         {
             _gameApp = gameApp;
             _camera = _gameApp.Services.GetService<OrthographicCamera>();
@@ -42,7 +42,7 @@ namespace MoorhuhnRemake.Src.Systems
         {
             // Components
             _transform2DMapper = componentService.GetMapper<Transform2D>();
-            _chickenInfoMapper = componentService.GetMapper<ChickenInfoComponent>();
+            _chickenInfoMapper = componentService.GetMapper<ChickenComponent>();
             _animatedSpriteMapper = componentService.GetMapper<AnimatedSprite>();
             _rigidBody2DMapper = componentService.GetMapper<RigidBody2D>();
 

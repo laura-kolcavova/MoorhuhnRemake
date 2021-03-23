@@ -61,10 +61,9 @@ namespace MoorhuhnRemake.Src
             var entity = _world.CreateEntity();
             entity.AttachComponent(new Transform2D());
             entity.AttachComponent(new RigidBody2D());
-            entity.AttachComponent(new ChickenInfoComponent() { ChickenType = chickenType });
+            entity.AttachComponent(new ChickenComponent() { ChickenType = chickenType });
             entity.AttachComponent(new AnimatedSprite(spriteSheet));
             entity.AttachComponent(new RenderFormComponent() {  Name = "Chicken"} );
-            entity.AttachComponent(new TagChickenComponent());
 
             return entity;
         }
@@ -76,7 +75,6 @@ namespace MoorhuhnRemake.Src
             entity.AttachComponent(new Transform2D());
             entity.AttachComponent(new AnimatedSprite(_spriteSheetAmmo));
             entity.AttachComponent(new RenderFormComponent() { Name = "Ammo" });
-            entity.AttachComponent(new TagAmmoComponent());
             entity.AttachComponent(new TagHUDComponent());
 
             return entity;

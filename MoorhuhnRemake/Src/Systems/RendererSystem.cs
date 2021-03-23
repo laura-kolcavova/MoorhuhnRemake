@@ -19,19 +19,18 @@ namespace MoorhuhnRemake.Src.Systems
         private readonly SpriteBatch _sb;
         private readonly OrthographicCamera _camera;
 
-        private ComponentMapper<RenderFormComponent> _renderFormMapper;
-        private ComponentMapper<Transform2D> _transform2DMapper;
-        private ComponentMapper<Renderer> _rendererMapper;
-        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
-
-        public RendererSystem(GameApp gameApp)
-            : base(Aspect
-                  .All(typeof(RenderFormComponent), typeof(Transform2D)))
+        public RendererSystem(GameApp gameApp) : base(Aspect
+            .All(typeof(RenderFormComponent), typeof(Transform2D)))
         {
             _gameApp = gameApp;
             _sb = new SpriteBatch(_gameApp.GraphicsDevice);
             _camera = gameApp.Services.GetService<OrthographicCamera>();
         }
+
+        private ComponentMapper<RenderFormComponent> _renderFormMapper;
+        private ComponentMapper<Transform2D> _transform2DMapper;
+        private ComponentMapper<Renderer> _rendererMapper;
+        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
 
         public override void Initialize(IComponentMapperService componentService)
         {

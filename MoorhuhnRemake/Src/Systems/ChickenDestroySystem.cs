@@ -17,7 +17,7 @@ namespace MoorhuhnRemake.Src.Systems
         private ComponentMapper<Transform2D> _transform2DMapper;
 
         public ChickenDestroySystem(GameApp gameApp) : base(
-            Aspect.All(typeof(TagChickenComponent)))
+            Aspect.All(typeof(ChickenComponent)))
         {
             _gameApp = gameApp;
             _mapInfo = gameApp.Services.GetService<MapInfo>();
