@@ -17,21 +17,20 @@ namespace MoorhuhnRemake.Src.Systems
     {
         private readonly GameApp _gameApp;
         private readonly SpriteBatch _sb;
-        private readonly ScalingViewportAdapter _viewportAdapter;
+        private readonly ScalingViewportAdapter _viewportAdapter;    
 
-        private ComponentMapper<RenderFormComponent> _renderFormMapper;
-        private ComponentMapper<Transform2D> _transform2DMapper;
-        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
-
-        public RenderHudSystem(GameApp gameApp)
-           : base(Aspect
-                 .All(typeof(TagHUDComponent), typeof(RenderFormComponent)))
+        public RenderHudSystem(GameApp gameApp) : base(Aspect
+            .All(typeof(TagHUDComponent), typeof(RenderFormComponent)))
         {
             _gameApp = gameApp;
             _sb = new SpriteBatch(_gameApp.GraphicsDevice);
 
             _viewportAdapter = new ScalingViewportAdapter(_gameApp.GraphicsDevice, GameApp.DefaultWidth, GameApp.DefaultHeight);
         }
+
+        private ComponentMapper<RenderFormComponent> _renderFormMapper;
+        private ComponentMapper<Transform2D> _transform2DMapper;
+        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
 
         public override void Initialize(IComponentMapperService componentService)
         {

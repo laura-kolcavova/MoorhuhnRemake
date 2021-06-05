@@ -31,15 +31,6 @@ namespace MoorhuhnRemake.Src.Systems
         private readonly MapInfo _mapInfo;
         private readonly EventManager _eventManager;
 
-        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
-
-        private MouseState _currentMouseState;
-        private MouseState _prevMouseState;
-
-        private int _currentAmmo;
-        private Bag<int> _ammoEntities;
-        private bool _ammoBuilded;
-
         public PlayerControlSystem(GameApp gameApp)
         {
             _gameApp = gameApp;
@@ -51,6 +42,16 @@ namespace MoorhuhnRemake.Src.Systems
             // Properties
             _currentAmmo = AmmoCapacity;
         }
+
+        private ComponentMapper<AnimatedSprite> _animatedSpriteMapper;
+
+        private MouseState _currentMouseState;
+        private MouseState _prevMouseState;
+
+        private int _currentAmmo;
+        private Bag<int> _ammoEntities;
+        private bool _ammoBuilded;
+
 
         public override void Initialize(IComponentMapperService componentService)
         {   
@@ -132,22 +133,21 @@ namespace MoorhuhnRemake.Src.Systems
         {
             var ammoEntities = new Bag<int>(AmmoCapacity);
 
-            var viewport = _gameApp.GraphicsDevice.Viewport;
-            var scale = _gameApp.GetViewScale();
-
             float yPos = GameApp.DefaultHeight - ((GameApp.DefaultHeight) * ( 0.125f ));
             float xPos = GameApp.DefaultWidth - ((GameApp.DefaultWidth) * ( 0.28f ));
 
             for (int i = 0; i < AmmoCapacity; i++)
-            {
-                float gap = i * 50;
+            { 
                 var entity = _entityFactory.CreateAmmo();
 
                 var transform = entity.GetComponent<Transform2D>();
+                var animatedSprite = entity.GetComponent<AnimatedSprite>();
+
+                float gap = i * 50;
+
                 transform.Position = new Vector2(xPos + gap, yPos);
                 transform.Size = new Vector2(Prototypes.Ammo.Width, Prototypes.Ammo.Height);
-
-                var animatedSprite = entity.GetComponent<AnimatedSprite>();
+     
                 animatedSprite.Depth = Prototypes.Ammo.Depth;
 
                 ammoEntities[i] = entity.Id;
